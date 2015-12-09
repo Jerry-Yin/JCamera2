@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="J-美图"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textColor="#b55731b6"/>
+
+   <ImageView
+       android:id="@+id/image_show"
+       android:layout_width="match_parent"
+       android:layout_height="350dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="色相"
+        android:textSize="15sp"
+        android:layout_marginLeft="20dp"/>
+    <SeekBar
+        android:id="@+id/seek_hue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="饱和度"
+        android:textSize="15sp"
+        android:layout_marginLeft="20dp"/>
+    <SeekBar
+        android:id="@+id/seek_saturation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="亮度"
+        android:textSize="15sp"
+        android:layout_marginLeft="20dp"/>
+    <SeekBar
+        android:id="@+id/seek_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>
