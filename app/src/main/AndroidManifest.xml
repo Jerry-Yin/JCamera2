@@ -27,6 +27,8 @@
 
         <activity android:name=".activity.JBeautyImgActivity"></activity>
         <activity android:name=".activity.ColorMatrixActivity"></activity>
+
+        <activity android:name=".activity.PixelEffectActivity"></activity>
     </application>
 
 </manifest>

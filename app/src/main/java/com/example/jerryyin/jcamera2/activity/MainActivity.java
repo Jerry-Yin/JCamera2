@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent2);
                 break;
 
+            case R.id.btn_pixel:
+                Intent intent3 = new Intent(MainActivity.this, PixelEffectActivity.class);
+                startActivity(intent3);
+                break;
+
             default:
                 break;
         }

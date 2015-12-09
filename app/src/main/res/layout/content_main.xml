@@ -55,5 +55,14 @@
             android:textAllCaps="false"
             android:onClick="functionChoose"/>
 
+        <Button
+            android:id="@+id/btn_pixel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="像素处理"
+            android:textAllCaps="false"
+            android:onClick="functionChoose"/>
+
     </LinearLayout>
 </RelativeLayout>
