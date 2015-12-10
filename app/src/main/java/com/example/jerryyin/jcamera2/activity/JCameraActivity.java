@@ -2,6 +2,8 @@ package com.example.jerryyin.jcamera2.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.jerryyin.jcamera2.R;
 import com.example.jerryyin.jcamera2.tools.JCameraManager;
+import com.example.jerryyin.jcamera2.tools.JImageSaveTool;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -141,34 +144,22 @@ public class JCameraActivity extends Activity implements SurfaceHolder.Callback,
     private Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
-            String statue = Environment.getExternalStorageState();
-            if (statue.equals(Environment.MEDIA_MOUNTED)) {
-                String imgPath = Environment.getExternalStorageDirectory() + "/Aj";
-                File file1 = new File(imgPath);
-                file1.mkdir();
-                File file = new File(imgPath, "picture.jpeg");
+            //普通存储
+//            JImageSaveTool.saveImageToSd(JCameraActivity.this, data);
 
-//                File file = new File("/sdcard/temp.png");
-                FileOutputStream outputStream = null;
-                try {
-                    outputStream = new FileOutputStream(file);
-                    outputStream.write(data);
-                    Toast.makeText(JCameraActivity.this, "存储完毕！", Toast.LENGTH_SHORT).show();
-                    outputStream.close();
-
-                    Intent intent = new Intent(JCameraActivity.this, ResultActivity.class);
-                    intent.putExtra("img_path", file.getAbsolutePath());
-                    startActivity(intent);
-                    JCameraActivity.this.finish();
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
+            //存储并且插入系统图库
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            JImageSaveTool.saveImageToGallery(JCameraActivity.this, bitmap);
         }
     };
+
+
+
+//    public void goToShowImg(File file){
+//        Intent intent = new Intent(JCameraActivity.this, ResultActivity.class);
+//        intent.putExtra("img_path", file.getAbsolutePath());
+//        startActivity(intent);
+//        JCameraActivity.this.finish();
+//    }
+
 }
